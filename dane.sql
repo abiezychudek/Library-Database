@@ -69,3 +69,31 @@ INSERT INTO publisher VALUES
 (13,'Stentor'),
 (14,'Karakter')
 
+
+INSERT INTO member VALUES
+(1,'Ala','bie', 'Cracow','abie','root'),
+(2,'Ewa','nowak', 'Wieliczka','robak11','kwiat1'),
+(3,'Maciej','zab', 'Limanowa','mzab','root'),
+(4,'Wiktor','stokrotka', 'Wolowice','stokrotka','zabka98'),
+(5,'Kamil','harnil', 'Cracow','wharnik1','piesek123'),
+(6,'Aleksandra','olafowska', 'Cracow','olaf34','ladnieprosze'),
+(7,'Wiktoria','Filipek', 'Michalowice','filipek44','zdamyto'),
+(8,'Ela','Grzyb', 'Skawina','grzybowaty67','sql123'),
+(9,'Tomasz','Nytko', 'Raczna','wisla06','klip01'),
+(10,'Gosia','Samosia', 'Niepolomice','goniunia','qwert56'),
+(11,'Daniel','Lebiedz', 'Cracow','wolak','abcd123'),
+(12,'Lucyna','Skrzypek', 'Cracow','lucynka','root123')
+
+INSERT INTO member_status VALUES
+(1,2,5),
+(2,5,5),
+(3,0,5),
+(4,1,5),
+(5,3,5),
+(6,1,5),
+(7,0,5),
+(8,1,5),
+(9,4,5),
+(10,3,5),
+(11,2,5),
+(12,5,5)
