@@ -105,8 +105,8 @@ CREATE TABLE COPY(
 )
 
 CREATE TABLE publisher(
-	name VARCHAR(20) PRIMARY KEY,
 	book_id	INT,
+	name VARCHAR(20) ,
 	FOREIGN KEY (book_id) REFERENCES book(book_id)	
 )
 
