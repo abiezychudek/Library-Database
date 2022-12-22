@@ -47,6 +47,7 @@ INSERT INTO plan_of_building VALUES
 (10,'I',12),
 (11,'J',156)
 
+
 INSERT INTO book VALUES
 (1,1,'Koziolek Matolek',1,'1998-01-01',1,TRUE),
 (2,1,'Koziolek Matolek',1,'1967-11-29',1,TRUE),
@@ -78,7 +79,7 @@ INSERT INTO book VALUES
 (28,4,'Faust', 10,'2018-12-23',4,FALSE),
 (29,9,'Sen nocy letniej', 3,'2022-01-06',7,TRUE),
 (30,12,'Poskromienie zlosnicy', 1,'2001-02-19',6,TRUE),
-(31,11,'Ksiaze', 2,'1999-04-12',5,FALSE),
+(31,11,'Ksiaze', 2,'1999-04-12',5,FALSE)
 
 
 INSERT INTO publisher VALUES
@@ -151,3 +152,65 @@ INSERT INTO staff VALUES
 (20,'Maria','Szeregowa',2),
 (21,'Aleksandra','Stokok',3),
 (22,'Anastazja','Kowalska',4)
+
+
+INSERT INTO reservation VALUES
+(1,7,4),
+(2,2,3),
+(3,22,8),
+(4,10,6),
+(5,14,2)
+
+INSERT INTO copy VALUES
+(1,9,14),
+(15,1,1),
+(16,1,1),
+(17,0,1),
+(18,1,1),
+(19,0,1),
+(20,0,1),
+(21,0,1),
+(22,0,1),
+(23,1,1),
+(24,1,1),
+(25,0,1),
+(26,1,1),
+(27,0,1),
+(28,0,1),
+(29,1,1),
+(30,1,1),
+(31,0,1)
+
+
+INSERT INTO shelf VALUES
+('AAA',1),
+('AAB',1),
+('AAC',1),
+('AAD',1),
+('AAE',1),
+('BBA',2),
+('BBB',2),
+('BBC',2),
+('CCA',3),
+('CCB',3),
+('CCC',3),
+('CCD',3),
+('DDA',4),
+('EEA',5),
+('EEB',5),
+('EEC',5),
+('EED',5),
+('EEE',5),
+('FFA',6)
+
+INSERT INTO membership_history VALUES
+(1,1,'2020-02-07','2020-03-07'),
+(1,20,'2021-10-29','2022-07-01'),
+(1,31,'2017-02-07','2020-03-07'),
+(1,24,'2018-12-07','2019-09-30'),
+(1,17,'2021-12-17','2022-02-07'),
+(2,30,'2019-01-04','2019-08-12'),
+(2,19,'2020-04-07','2020-05-14'),
+(3,13,'2021-11-03','2022-03-07'),
+(4,9,'2020-02-07','2020-10-07')
+
