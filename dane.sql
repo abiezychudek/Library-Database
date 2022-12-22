@@ -137,3 +137,17 @@ INSERT INTO TOP_BOOKS VALUES
 (8,10),
 (9,17),
 (10,10)
+
+INSERT INTO staff VALUES
+(11,'Tomek','Jakistam',1),
+(12,'Justyna','Jakastam',2),
+(13,'Slon','Trabalski',3),
+(14,'Piotrus','Pan',4),
+(15,'Jakub','Puchatek',5),
+(16,'Baba','Jaga',6),
+(17,'Tymek','Dymek',7),
+(18,'Kasia','Nowak',8),
+(19,'Stanisalaw','Wokulski',1),
+(20,'Maria','Szeregowa',2),
+(21,'Aleksandra','Stokok',3),
+(22,'Anastazja','Kowalska',4)
