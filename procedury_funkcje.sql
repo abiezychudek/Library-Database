@@ -39,7 +39,7 @@ DECLARE
 $$
 
 --1.Funkcja sprawdzająca czy występuje dane książka w bibliotece		
-CREATE OR REPLACE FUNCTION available (ti;tle_name VARCHAR(25),authorSur VARCHAR(20)) 
+CREATE OR REPLACE FUNCTION available (title_name VARCHAR(25),authorSur VARCHAR(20)) 
    returns BOOLEAN
 	language plpgsql
 	as
