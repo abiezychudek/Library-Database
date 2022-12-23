@@ -82,6 +82,31 @@ INSERT INTO book VALUES
 (30,12,'Poskromienie zlosnicy', 1,'2001-02-19',6,TRUE),
 (31,11,'Ksiaze', 2,'1999-04-12',5,FALSE)
 
+(32,11,'Swiat Zofii', 5,'2012-01-12',1,TRUE),
+(33,11,'Swiat Zofii', 5,'2011-10-14',2,TRUE),
+(34,11,'Swiat Zofii', 5,'2014-08-09',3,TRUE),
+(35,11,'Swiat Zofii', 5,'2000-09-04',4,TRUE),
+(36,11,'Swiat Zofii', 5,'2009-11-24',5,TRUE),
+(37,1,'Wladca Pierscieni', 8,'2003-12-21',1,TRUE),
+(38,1,'Wladca Pierscieni', 8,'2020-09-19',8,TRUE),
+(39,1,'Wladca Pierscieni', 8,'2022-01-11',3,TRUE),
+(40,12,'Poskromienie zlosnicy', 1,'1991-03-09',5,FALSE),
+(41,12,'Poskromienie zlosnicy', 1,'2001-12-29',4,TRUE),
+(42,9,'Lalka', 9,'1987-10-31',4,TRUE),
+(43,9,'Lalka', 9,'2012-08-31',4,FALSE),
+(44,9,'Lalka', 9,'2010-02-03',4,FALSE),
+(45,10,'Hrabia Monte Christo', 8,'2017-11-30',7,TRUE),
+(46,10,'Hrabia Monte Christo', 8,'2014-09-15',7,FALSE),
+(47,6,'Trzech Muszkieterow', 1,'2001-01-14',6,TRUE),
+(48,6,'Trzech Muszkieterow', 1,'2002-02-15',5,FALSE),
+(49,6,'Trzech Muszkieterow', 1,'2003-03-16',4,TRUE),
+(50,6,'Trzech Muszkieterow', 1,'2004-04-17',3,TRUE),
+(51,6,'Trzech Muszkieterow', 1,'2005-05-18',2,TRUE),
+(52,8,'Hobbit', 3,'2021-06-06',2,FALSE),
+(53,9,'Imie Rozy', 4,'2011-11-13',5,FALSE),
+(54,6,'Zabawy Poufne', 9,'2000-05-05',2,TRUE),
+(55,4,'Faust', 10,'2019-10-24',2,FALSE),
+(56,9,'Sen nocy letniej', 3,'2020-11-14',3,TRUE)
 
 INSERT INTO publisher VALUES
 (1,'HarperCollins'),
