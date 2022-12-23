@@ -74,3 +74,20 @@ $$
 	END
 	WHERE id_member=member_id AND id_book=book_id
 $$
+
+--4.Oddanie ksiązki 
+CREATE PROCEDURE return_book(id_member INT,id_book INT)
+	LANGUAGE plpgsql
+	AS
+$$
+	DECLARE loan DATE;
+	
+	BEGIN
+		loan:=(SELECT loan_data FROM loan_books WHERE (member_id=id_member AND book_id=id_book));
+	
+		INSERT INTO membership_history VALUES(id_member,id_book, loan,CURRENT_DATE);
+
+		DELETE FROM loan_books WHERE (member_id=id_member AND book_id=id_book);
+	END;	
+$$	
+
