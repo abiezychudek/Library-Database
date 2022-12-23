@@ -56,3 +56,21 @@ CREATE OR REPLACE FUNCTION available (title_name VARCHAR(25),authorSur VARCHAR(2
       	   end if;
    		end;
 	$$	
+	
+	
+	
+--3.Przedłużenie książki
+CREATE TYPE long AS ENUM ('day', 'week', 'month');
+CREATE PROCEDURE longer_return_data(date long, id_member INT,id_book INT)
+	LANGUAGE SQL
+	AS 
+$$
+	UPDATE loan_books SET
+	 return_data = CASE
+             WHEN (date='day') THEN return_data+interval '1 day'
+ 	 		  WHEN (date='week') THEN return_data+interval '1 week'
+ 	         WHEN (date='month') THEN return_data+interval '1 month'
+              
+	END
+	WHERE id_member=member_id AND id_book=book_id
+$$
