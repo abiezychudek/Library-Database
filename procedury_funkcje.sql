@@ -28,6 +28,7 @@ DECLARE
 			title_name:=(SELECT title FROM book WHERE book_id=i LIMIT 1);
 		IF(NOT exists(select title from copy where title = title_name))
 			   then 
+			   
 		   		INSERT INTO copy VALUES(i,
 										(SELECT COUNT(*) FROM book WHERE title=title_name AND availability=TRUE ),
 										( SELECT COUNT(*) FROM book WHERE title=title_name));
@@ -91,3 +92,29 @@ $$
 	END;	
 $$	
 
+--5.DODANIE NOWE KSIAZKI
+
+CREATE PROCEDURE add_book(category_name_ VARCHAR(20),title VARCHAR(25),a_name VARCHAR(20),a_surname VARCHAR(20),date_of_publication DATE)
+LANGUAGE plpgsql
+	AS
+$$
+	DECLARE author INT;
+		    max_id_a INT;
+			max_id_b INT;
+			cat_id INT;
+	
+	BEGIN
+		max_id_b:=(SELECT MAX(book_id) FROM book);
+		cat_id:=(SELECT category_id FROM category WHERE category_name_=category_name );
+		if(NOT exists(SELECT author_id FROM author WHERE name=a_name AND surname=a_surname ))
+			THEN
+				max_id_a:=(SELECT MAX(author_id) FROM author);
+				INSERT INTO author VALUES(max_id_a+1,a_name,a_surname);
+				INSERT INTO book VALUES(max_id_b+1,cat_id,title,max_id_a+1,date_of_publication,1,TRUE);
+		ELSE 
+			author:=(SELECT author_id FROM author WHERE name=a_name AND surname=a_surname );
+			INSERT INTO book VALUES(max_id_b+1,cat_id,title,author,date_of_publication,1,TRUE);
+		END IF;
+		END;
+		
+		$$
