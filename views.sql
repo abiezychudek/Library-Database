@@ -49,8 +49,9 @@ SELECT T.Full_name_booker,T.title,C.category_name ,loan.Full_name_loaner
 	JOIN category C ON C.category_id=T.category_id
 	
 	
---6 Widok tytulu ksiazki i liczba dostepnych kopii w bibliotece
+--6 Widok imie i nazwisko autora, tytul ksiazki i liczba dostepnych kopii w bibliotece
 CREATE OR REPLACE VIEW Num_of_copies AS
-SELECT title, COUNT(title) as copies FROM book B
-WHERE B.availability = true 
-GROUP BY (author_id, title);
+SELECT A.name, A.surname, B.title, COUNT(B.title) as copies FROM book B, author A
+WHERE B.availability = true AND B.author_id = A.author_id 
+GROUP BY (A.author_id, B.title);
+
