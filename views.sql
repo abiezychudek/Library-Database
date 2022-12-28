@@ -47,4 +47,17 @@ SELECT T.Full_name_booker,T.title,C.category_name ,loan.Full_name_loaner
 	) loan  ON loan.book_id= T.book_id
 	
 	JOIN category C ON C.category_id=T.category_id
-
+	
+	
+--6 Widok tytulu ksiazki i liczba dostepnych kopii w bibliotece
+CREATE OR REPLACE VIEW AV_COPIES AS
+SELECT B.title, B.available_num  
+FROM ( SELECT B.*,row_number() over (partition by title order by title) as seq		
+       FROM 
+	    (SELECT B.title, COUNT(availability) as available_num 
+	     FROM BOOK B
+	     WHERE B.availability = TRUE
+	     GROUP BY title
+	     )B 
+     )B
+WHERE seq = 1 ;
