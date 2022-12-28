@@ -141,4 +141,22 @@ CREATE OR REPLACE FUNCTION by_category(cat_name varchar)
 	
 	$$
 	
+--3.Funkcja wypisuje ksiazki z danego sektora
+
+CREATE OR REPLACE FUNCTION by_sector(sec_id int)
+	returns table(
+		title_name varchar,
+		id int
+	)
+	language plpgsql
+	AS
+	$$
+	BEGIN
+		return query
+		SELECT B.title, B.sector_id FROM book B
+		WHERE sec_id = B.sector_id;
+	
+	END;
+	$$
+	
 	
