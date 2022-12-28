@@ -125,7 +125,8 @@ $$
 CREATE OR REPLACE FUNCTION by_category(cat_name varchar)
 	returns table (
 		title_name varchar,
-		category_name varchar
+		category_name varchar,
+		id int
 	)
 	language plpgsql
 	AS
@@ -133,7 +134,7 @@ CREATE OR REPLACE FUNCTION by_category(cat_name varchar)
 	
 	BEGIN
 		return query
-		SELECT B.title,B.category_name
+		SELECT B.title, B.category_name, B.book_id
 		FROM book_cat B
 		WHERE cat_name = B.category_name;
 	END;
