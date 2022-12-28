@@ -118,3 +118,20 @@ $$
 		END;
 		
 		$$
+--2.Funkcja wypisuje ksiazki z danego gatunku (uzywam widoku 7)!
+CREATE OR REPLACE FUNCTION by_category(cat_name varchar)
+	returns table (
+		title_name varchar,
+		category_name varchar
+	)
+	language plpgsql
+	as $$
+	begin
+	return query
+	SELECT B.title,B.category_name
+	FROM book_cat B
+	WHERE cat_name = B.category_name;
+	end;
+	$$
+	
+	
