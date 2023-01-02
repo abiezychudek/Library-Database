@@ -81,7 +81,9 @@ CREATE TABLE STAFF(
 	name VARCHAR(20),
 	surname VARCHAR(20),
 	sector_id INT,
-	FOREIGN KEY (sector_id) REFERENCES SECTOR(sector_id)
+	position_id INT,
+	FOREIGN KEY (sector_id) REFERENCES SECTOR(sector_id),
+	FOREIGN KEY (position_id) REFERENCES POSITION(position_id)
 )
 
 CREATE TABLE SHELF(
@@ -123,4 +125,10 @@ CREATE TABLE TOP_BOOKS(
 	PLACE INT,
 	BOOK_ID int,
 	FOREIGN KEY (BOOK_ID) REFERENCES BOOK(book_id)	
+)
+
+CREATE TABLE POSITION(
+	position_id INT PRIMARY KEY,
+	salary INT,
+	bonus INT
 )
