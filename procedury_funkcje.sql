@@ -1,4 +1,4 @@
---1.Procedura zmienia status ksiązki na niedostępna oraz dodaje infomracje do tabeli o wypożyczonych książkach
+-- 1.Procedura zmienia status ksiązki na niedostępna oraz dodaje infomracje do tabeli o wypożyczonych książkach
 CREATE PROCEDURE Loan_BOOK (bookid INT, memberid INT)
 	LANGUAGE SQL
 	AS $$
@@ -11,8 +11,8 @@ CREATE PROCEDURE Loan_BOOK (bookid INT, memberid INT)
 		(bookid,memberid,CURRENT_DATE,NOW() + interval '1 month')
 		$$
 		
---2.Procedura odopwiadajace za poprawne dane dane w tabeki copy		
-CREATE PROCEDURE copyOfBooks ()
+-- 2.Procedura odopwiadajace za poprawne dane dane w tabeki copy		
+CREATE OR REPLACE PROCEDURE copyOfBooks ()
  LANGUAGE plpgsql AS
 $$
 DECLARE
@@ -21,12 +21,13 @@ DECLARE
 		i INT;
 		title_name VARCHAR(25);
 	BEGIN
-	SELECT COUNT(*) FROM book AS rows;
+	rows= COUNT(*) FROM book AS rows;
 	i=1;
 	WHILE(i<=rows) loop
 		
 			title_name:=(SELECT title FROM book WHERE book_id=i LIMIT 1);
-		IF(NOT exists(select title from copy where title = title_name))
+		IF(NOT exists(select copy.book_id from copy 
+					  JOIN book ON book.book_id = copy.book_id ))
 			   then 
 			   
 		   		INSERT INTO copy VALUES(i,
@@ -39,7 +40,7 @@ DECLARE
 		END
 $$
 
---1.Funkcja sprawdzająca czy występuje dane książka w bibliotece		
+-- 1.Funkcja sprawdzająca czy występuje dane książka w bibliotece		
 CREATE OR REPLACE FUNCTION available (title_name VARCHAR(25),authorSur VARCHAR(20)) 
    returns BOOLEAN
 	language plpgsql
