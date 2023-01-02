@@ -119,9 +119,7 @@ CREATE TABLE publisher(
 CREATE TABLE TERMINAL(
 	terminal_id INT PRIMARY KEY,
 	availability BOOLEAN,
-	member_id INT,
 	sector_id INT,
-	FOREIGN KEY (member_id) REFERENCES MEMBER(member_id),
 	FOREIGN KEY (sector_id) REFERENCES SECTOR(sector_id)
 )
 
