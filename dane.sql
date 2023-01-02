@@ -165,19 +165,27 @@ INSERT INTO TOP_BOOKS VALUES
 (9,17),
 (10,10)
 
+
+INSERT INTO position VALUES
+(1,3500,500),
+(2,3200,400),
+(3,3000,350),
+(4,2800,300)
+
+
 INSERT INTO staff VALUES
-(11,'Tomek','Jakistam',1),
-(12,'Justyna','Jakastam',2),
-(13,'Slon','Trabalski',3),
-(14,'Piotrus','Pan',4),
-(15,'Jakub','Puchatek',5),
-(16,'Baba','Jaga',6),
-(17,'Tymek','Dymek',7),
-(18,'Kasia','Nowak',8),
-(19,'Stanisalaw','Wokulski',1),
-(20,'Maria','Szeregowa',2),
-(21,'Aleksandra','Stokok',3),
-(22,'Anastazja','Kowalska',4)
+(11,'Tomek','Jakistam',1,4),
+(12,'Justyna','Jakastam',2,4),
+(13,'Slon','Trabalski',3,4),
+(14,'Piotrus','Pan',4,3),
+(15,'Jakub','Puchatek',5,1),
+(16,'Baba','Jaga',6,2),
+(17,'Tymek','Dymek',7,1),
+(18,'Kasia','Nowak',8,2),
+(19,'Stanisalaw','Wokulski',1,3),
+(20,'Maria','Szeregowa',2,3),
+(21,'Aleksandra','Stokok',3,1),
+(22,'Anastazja','Kowalska',4,1)
 
 
 INSERT INTO reservation VALUES
