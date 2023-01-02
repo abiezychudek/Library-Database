@@ -118,3 +118,50 @@ $$
 		END;
 		
 		$$
+		
+		
+--2.Funkcja wypisuje ksiazki z danego gatunku (uzywam widoku 7)!
+
+CREATE OR REPLACE FUNCTION by_category(cat_name varchar)
+	returns table (
+		Author_name varchar,
+		Author_surname varchar,
+		title_name varchar,
+		category_name varchar,
+		id int
+	)
+	language plpgsql
+	AS
+	$$
+	
+	BEGIN
+		return query
+		SELECT B.name, B.surname,B.title, B.category_name, B.book_id
+		FROM book_cat B
+		WHERE cat_name = B.category_name;
+	END;
+	
+	$$
+	
+--3.Funkcja wypisuje ksiazki z danego sektora
+
+CREATE OR REPLACE FUNCTION by_sector(sec_id int)
+	returns table(
+		Author_name varchar,
+		Author_surname varchar,
+		title_name varchar,
+		id int
+	)
+	language plpgsql
+	AS
+	$$
+	BEGIN
+		return query
+		SELECT B.name, B.surname,B.title, B.sector_id FROM book_cat B
+		WHERE sec_id = B.sector_id;
+	
+	
+	END;
+	$$
+	
+	
