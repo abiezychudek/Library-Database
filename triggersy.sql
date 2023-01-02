@@ -58,3 +58,22 @@ CREATE TRIGGER check_valid_publication_book
 FOR EACH ROW EXECUTE PROCEDURE   not_possible_data();
 
 INSERT INTO book VALUES(21111002,1,'AKSDAD',3,'2030-03-03',1,TRUE);
+
+-- 4 Zmiana sumy ilosci ksiazek w danym sektorze
+
+CREATE OR REPLACE FUNCTION update_amount()
+ RETURNS TRIGGER 
+  LANGUAGE PLPGSQL
+AS
+ $$
+ BEGIN 
+ 	UPDATE plan_of_building SET amout_of_books=amout_of_books+1 WHERE sector_id=NEW.sector_id;
+	UPDATE plan_of_building SET amout_of_books=amout_of_books-1 WHERE sector_id=OLD.sector_id;
+	RETURN NEW;
+	END;
+$$
+
+CREATE TRIGGER amount
+AFTER UPDATE of sector_id ON book
+FOR EACH ROW EXECUTE PROCEDURE  update_amount();
+
