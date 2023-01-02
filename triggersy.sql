@@ -1,4 +1,5 @@
-CREATE OR REPLACE FUNCTION log_last_name_changes()
+-- 1 wstawienie do histori członka oddana ksiazke
+CREATE OR REPLACE FUNCTION update_membership()
   RETURNS TRIGGER 
   LANGUAGE PLPGSQL
   AS
@@ -14,9 +15,9 @@ CREATE TRIGGER return_book
 	BEFORE DELETE
 	ON loan_books
 	FOR EACH ROW 
-	EXECUTE PROCEDURE log_last_name_changes();
+	EXECUTE PROCEDURE update_membership();
 	
-	
+-- 2 brak moziiwosci pozyczenie ksiazki, jesli ktos ma juz limit	
 CREATE OR REPLACE FUNCTION too_many_books()
   RETURNS TRIGGER 
   LANGUAGE PLPGSQL
@@ -36,3 +37,24 @@ CREATE TRIGGER check_valid_loan_book
   BEFORE INSERT ON loan_books
 FOR EACH ROW EXECUTE PROCEDURE   too_many_books();
 
+-- 3 brak mozliwosci zamiany daty, na wczesniejsza niz jest pozyczona
+
+CREATE OR REPLACE FUNCTION not_possible_data()
+ RETURNS TRIGGER 
+  LANGUAGE PLPGSQL
+AS
+ $$
+ BEGIN 
+IF NEW.date_of_publication   > now()
+ THEN  
+ 	RAISE NOTICE 'You have the limit';
+	return null;
+	END IF;
+	return NEW;
+	END; $$;
+	
+CREATE TRIGGER check_valid_publication_book
+   INSERT ON book
+FOR EACH ROW EXECUTE PROCEDURE   not_possible_data();
+
+INSERT INTO book VALUES(21111002,1,'AKSDAD',3,'2030-03-03',1,TRUE);
