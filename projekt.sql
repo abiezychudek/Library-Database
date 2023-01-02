@@ -132,3 +132,8 @@ CREATE TABLE TOP_BOOKS(
 )
 
 
+CREATE TABLE TERMINAL(
+	terminal_id INT PRIMARY KEY,
+	availability BOOL
+)
+	
