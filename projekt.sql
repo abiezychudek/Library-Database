@@ -74,7 +74,11 @@ CREATE TABLE RESERVATION(
 	FOREIGN KEY (member_id) REFERENCES member(member_id)	
 )
 
-
+CREATE TABLE POSITION(
+	position_id INT PRIMARY KEY,
+	salary INT,
+	bonus INT
+)
 
 CREATE TABLE STAFF(
 	staff_id SERIAL PRIMARY KEY,
@@ -127,8 +131,4 @@ CREATE TABLE TOP_BOOKS(
 	FOREIGN KEY (BOOK_ID) REFERENCES BOOK(book_id)	
 )
 
-CREATE TABLE POSITION(
-	position_id INT PRIMARY KEY,
-	salary INT,
-	bonus INT
-)
+
