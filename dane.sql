@@ -165,19 +165,27 @@ INSERT INTO TOP_BOOKS VALUES
 (9,17),
 (10,10)
 
+
+INSERT INTO position VALUES
+(1,3500,500),
+(2,3200,400),
+(3,3000,350),
+(4,2800,300)
+
+
 INSERT INTO staff VALUES
-(11,'Tomek','Jakistam',1),
-(12,'Justyna','Jakastam',2),
-(13,'Slon','Trabalski',3),
-(14,'Piotrus','Pan',4),
-(15,'Jakub','Puchatek',5),
-(16,'Baba','Jaga',6),
-(17,'Tymek','Dymek',7),
-(18,'Kasia','Nowak',8),
-(19,'Stanisalaw','Wokulski',1),
-(20,'Maria','Szeregowa',2),
-(21,'Aleksandra','Stokok',3),
-(22,'Anastazja','Kowalska',4)
+(11,'Tomek','Jakistam',1,4),
+(12,'Justyna','Jakastam',2,4),
+(13,'Slon','Trabalski',3,4),
+(14,'Piotrus','Pan',4,3),
+(15,'Jakub','Puchatek',5,1),
+(16,'Baba','Jaga',6,2),
+(17,'Tymek','Dymek',7,1),
+(18,'Kasia','Nowak',8,2),
+(19,'Stanisalaw','Wokulski',1,3),
+(20,'Maria','Szeregowa',2,3),
+(21,'Aleksandra','Stokok',3,1),
+(22,'Anastazja','Kowalska',4,1)
 
 
 INSERT INTO reservation VALUES
@@ -256,3 +264,19 @@ INSERT INTO loan_books VALUES
 (27,8,'2022-10-07','2022-11-07'),
 (28,11,'2022-01-12','2022-02-12'),
 (31,12,'2022-08-20','2022--20')
+
+INSERT INTO terminal VALUES
+(1,TRUE,1),
+(2,TRUE,1),
+(3,FALSE,2),
+(4,TRUE,4),
+(5,FALSE,5),
+(6,TRUE,4),
+(7,FALSE,4),
+(8,FALSE,4),
+(9,TRUE,5),
+(10,FALSE,5),
+(11,TRUE,6),
+(12,TRUE,6),
+(13,TRUE,7),
+(14,FALSE,7)

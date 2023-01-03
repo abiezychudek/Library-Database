@@ -74,7 +74,11 @@ CREATE TABLE RESERVATION(
 	FOREIGN KEY (member_id) REFERENCES member(member_id)	
 )
 
-
+CREATE TABLE POSITION(
+	position_id INT PRIMARY KEY,
+	salary INT,
+	bonus INT
+)
 
 CREATE TABLE STAFF(
 	staff_id SERIAL PRIMARY KEY,
@@ -115,9 +119,7 @@ CREATE TABLE publisher(
 CREATE TABLE TERMINAL(
 	terminal_id INT PRIMARY KEY,
 	availability BOOLEAN,
-	member_id INT,
 	sector_id INT,
-	FOREIGN KEY (member_id) REFERENCES MEMBER(member_id),
 	FOREIGN KEY (sector_id) REFERENCES SECTOR(sector_id)
 )
 
@@ -127,8 +129,5 @@ CREATE TABLE TOP_BOOKS(
 	FOREIGN KEY (BOOK_ID) REFERENCES BOOK(book_id)	
 )
 
-CREATE TABLE POSITION(
-	position_id INT PRIMARY KEY,
-	salary INT,
-	bonus INT
-)
+
+
