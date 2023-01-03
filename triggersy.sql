@@ -37,27 +37,26 @@ CREATE TRIGGER check_valid_loan_book
   BEFORE INSERT ON loan_books
 FOR EACH ROW EXECUTE PROCEDURE   too_many_books();
 
--- 3 brak mozliwosci zamiany daty, na wczesniejsza niz jest pozyczona
+-- 3 brak mozliwosci dodania, bądź zmiany daty publikacji książki jeśli jest wczesniejsza niz dzisiejsza data
 
 CREATE OR REPLACE FUNCTION not_possible_data()
  RETURNS TRIGGER 
   LANGUAGE PLPGSQL
 AS
- $$
- BEGIN 
-IF NEW.date_of_publication   > now()
- THEN  
- 	RAISE NOTICE 'You have the limit';
-	return null;
-	END IF;
-	return NEW;
-	END; $$;
+$$
+BEGIN 
+		IF NEW.date_of_publication   > now()
+ 		 THEN  
+ 		RAISE NOTICE 'You have the limit';
+			return null;
+		END IF;
+			return NEW;
+END;
+$$;
 	
-CREATE TRIGGER check_valid_publication_book
-   INSERT ON book
+CREATE OR REPLACE TRIGGER check_valid_publication_book
+   BEFORE INSERT OR UPDATE ON book
 FOR EACH ROW EXECUTE PROCEDURE   not_possible_data();
-
-INSERT INTO book VALUES(21111002,1,'AKSDAD',3,'2030-03-03',1,TRUE);
 
 -- 4 Zmiana sumy ilosci ksiazek w danym sektorze
 
