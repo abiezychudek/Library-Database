@@ -76,3 +76,34 @@ CREATE TRIGGER amount
 AFTER UPDATE of sector_id ON book
 FOR EACH ROW EXECUTE PROCEDURE  update_amount();
 
+-- 5 wpisuje do tabelki changes informacje o zmianie nazwiska kogos
+   CREATE TABLE changes (
+   id INT GENERATED ALWAYS AS IDENTITY,
+   member_id INT NOT NULL,
+   surname VARCHAR(40) NOT NULL,
+   changed_time TIMESTAMP(6) NOT NULL
+);
+
+
+CREATE OR REPLACE FUNCTION change_surname_add()
+  RETURNS TRIGGER 
+  language PLPGSQL
+  AS
+$$
+BEGIN
+	IF NEW.name <> OLD.name THEN
+		 INSERT INTO changes(member_id,surname,changed_time)
+		 VALUES(OLD.member_id,OLD.surname,now());
+	END IF;
+
+	RETURN NEW;
+END;
+$$;
+
+
+CREATE TRIGGER new_surname
+  BEFORE UPDATE
+  ON member
+  FOR EACH ROW
+  EXECUTE PROCEDURE change_surname_add();
+  
