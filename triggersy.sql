@@ -91,7 +91,7 @@ CREATE OR REPLACE FUNCTION change_surname_add()
   AS
 $$
 BEGIN
-	IF NEW.name <> OLD.name THEN
+	IF NEW.surname <> OLD.surname THEN
 		 INSERT INTO changes(member_id,surname,changed_time)
 		 VALUES(OLD.member_id,OLD.surname,now());
 	END IF;
