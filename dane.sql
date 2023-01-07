@@ -9,7 +9,7 @@ INSERT INTO author VALUES
 (7,'Hans','Zangh'),
 (8,'Matthew','Brown'),
 (9,'Anna','Lewandowska'),
-(10,'Kylian','Mbappe')
+(10,'Kylian','Mbappe');
 
 INSERT INTO SECTOR VALUES
 (1, 0, 8, 3),
@@ -19,7 +19,7 @@ INSERT INTO SECTOR VALUES
 (5, 1, 4, 4),
 (6, 1, 5, 2),
 (7, 1, 4, 0),
-(8, 1, 3, 4)
+(8, 1, 3, 4);
 
 INSERT INTO category VALUES
 (1,'Fantasy'),
@@ -33,7 +33,7 @@ INSERT INTO category VALUES
 (9,'Satire'),
 (10,'Poetry'),
 (11,'Western'),
-(12,'Thriller')
+(12,'Thriller');
 
 INSERT INTO plan_of_building VALUES
 (1,'A',121),
@@ -46,7 +46,7 @@ INSERT INTO plan_of_building VALUES
 (8,'H',87),
 (9,'I',45),
 (10,'I',12),
-(11,'J',156)
+(11,'J',156);
 
 
 INSERT INTO book VALUES
@@ -106,7 +106,7 @@ INSERT INTO book VALUES
 (53,9,'Imie Rozy', 4,'2011-11-13',5,FALSE),
 (54,6,'Zabawy Poufne', 9,'2000-05-05',2,TRUE),
 (55,4,'Faust', 10,'2019-10-24',2,FALSE),
-(56,9,'Sen nocy letniej', 3,'2020-11-14',3,TRUE)
+(56,9,'Sen nocy letniej', 3,'2020-11-14',3,TRUE);
 
 INSERT INTO publisher VALUES
 (1,'HarperCollins'),
@@ -122,7 +122,7 @@ INSERT INTO publisher VALUES
 (11,'Universitas'),
 (12,'Stentor'),
 (13,'Stentor'),
-(14,'Karakter')
+(14,'Karakter');
 
 
 INSERT INTO member VALUES
@@ -137,7 +137,7 @@ INSERT INTO member VALUES
 (9,'Tomasz','Nytko', 'Raczna','wisla06','klip01'),
 (10,'Gosia','Samosia', 'Niepolomice','goniunia','qwert56'),
 (11,'Daniel','Lebiedz', 'Cracow','wolak','abcd123'),
-(12,'Lucyna','Skrzypek', 'Cracow','lucynka','root123')
+(12,'Lucyna','Skrzypek', 'Cracow','lucynka','root123');
 
 INSERT INTO member_status VALUES
 (1,2,5),
@@ -151,7 +151,7 @@ INSERT INTO member_status VALUES
 (9,4,5),
 (10,3,5),
 (11,2,5),
-(12,5,5)
+(12,5,5);
 
 INSERT INTO TOP_BOOKS VALUES
 (1,19),
@@ -163,14 +163,14 @@ INSERT INTO TOP_BOOKS VALUES
 (7,20),
 (8,10),
 (9,17),
-(10,10)
+(10,10);
 
 
 INSERT INTO position VALUES
 (1,3500,500),
 (2,3200,400),
 (3,3000,350),
-(4,2800,300)
+(4,2800,300);
 
 
 INSERT INTO staff VALUES
@@ -185,7 +185,7 @@ INSERT INTO staff VALUES
 (19,'Stanisalaw','Wokulski',1,3),
 (20,'Maria','Szeregowa',2,3),
 (21,'Aleksandra','Stokok',3,1),
-(22,'Anastazja','Kowalska',4,1)
+(22,'Anastazja','Kowalska',4,1);
 
 
 INSERT INTO reservation VALUES
@@ -193,7 +193,7 @@ INSERT INTO reservation VALUES
 (2,2,3),
 (3,22,8),
 (4,10,6),
-(5,14,2)
+(5,14,2);
 
 INSERT INTO copy VALUES
 (1,9,14),
@@ -213,7 +213,7 @@ INSERT INTO copy VALUES
 (28,0,1),
 (29,1,1),
 (30,1,1),
-(31,0,1)
+(31,0,1);
 
 
 INSERT INTO shelf VALUES
@@ -235,7 +235,7 @@ INSERT INTO shelf VALUES
 ('EEC',5),
 ('EED',5),
 ('EEE',5),
-('FFA',6)
+('FFA',6);
 
 INSERT INTO membership_history VALUES
 (1,1,'2020-02-07','2020-03-07'),
@@ -246,7 +246,7 @@ INSERT INTO membership_history VALUES
 (2,30,'2019-01-04','2019-08-12'),
 (2,19,'2020-04-07','2020-05-14'),
 (3,13,'2021-11-03','2022-03-07'),
-(4,9,'2020-02-07','2020-10-07')
+(4,9,'2020-02-07','2020-10-07');
 
 
 INSERT INTO loan_books VALUES
@@ -263,7 +263,7 @@ INSERT INTO loan_books VALUES
 (25,2,'2022-11-22','2023-01-22'),
 (27,8,'2022-10-07','2022-11-07'),
 (28,11,'2022-01-12','2022-02-12'),
-(31,12,'2022-08-20','2022--20')
+(31,12,'2022-08-20','2022--20');
 
 INSERT INTO terminal VALUES
 (1,TRUE,1),
@@ -279,4 +279,4 @@ INSERT INTO terminal VALUES
 (11,TRUE,6),
 (12,TRUE,6),
 (13,TRUE,7),
-(14,FALSE,7)
+(14,FALSE,7);
