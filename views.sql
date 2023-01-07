@@ -57,6 +57,6 @@ GROUP BY (A.author_id, B.title);
 
 --7. Wypisuje ksiazke i gatunek (POTRZEBNE DO FUNKCJI)
 CREATE OR REPLACE VIEW book_cat as
-SELECT A.name, A.surname, B.title, B.book_id,B.category_id,B.author_id,C.category_name FROM  book B
+SELECT A.name, A.surname, B.title, B.book_id,B.category_id,B.author_id,C.category_name, B.sector_id  FROM  book B
 JOIN category C ON B.category_id = C.category_id
 JOIN author A on B.author_id = A.author_id;
