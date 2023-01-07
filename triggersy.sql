@@ -9,7 +9,7 @@ BEGIN
 	VALUES(OLD.member_id,OLD.book_id,OLD.loan_data,now());
 	RETURN NEW;
 END;
-$$
+$$;
 
 CREATE TRIGGER return_book
 	BEFORE DELETE
@@ -70,7 +70,7 @@ AS
 	UPDATE plan_of_building SET amout_of_books=amout_of_books-1 WHERE sector_id=OLD.sector_id;
 	RETURN NEW;
 	END;
-$$
+$$;
 
 CREATE TRIGGER amount
 AFTER UPDATE of sector_id ON book
