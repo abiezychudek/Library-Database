@@ -9,7 +9,7 @@ CREATE PROCEDURE Loan_BOOK (bookid INT, memberid INT)
 	
 		INSERT INTO loan_books VALUES
 		(bookid,memberid,CURRENT_DATE,NOW() + interval '1 month')
-		$$
+		$$;
 		
 -- 2.Procedura odopwiadajace za poprawne dane dane w tabeki copy		
 CREATE OR REPLACE PROCEDURE copyOfBooks ()
@@ -38,7 +38,7 @@ DECLARE
 			i:=i+1;
 		END LOOP;
 		END
-$$
+$$;
 
 -- 1.Funkcja sprawdzająca czy występuje dane książka w bibliotece		
 CREATE OR REPLACE FUNCTION available (title_name VARCHAR(25),authorSur VARCHAR(20)) 
@@ -57,7 +57,7 @@ CREATE OR REPLACE FUNCTION available (title_name VARCHAR(25),authorSur VARCHAR(2
          		return 'false';
       	   end if;
    		end;
-	$$	
+	$$;	
 	
 	
 	
@@ -75,7 +75,7 @@ $$
               
 	END
 	WHERE id_member=member_id AND id_book=book_id
-$$
+$$;
 
 --4.Oddanie ksiązki 
 CREATE PROCEDURE return_book(id_member INT,id_book INT)
@@ -91,7 +91,7 @@ $$
 
 		DELETE FROM loan_books WHERE (member_id=id_member AND book_id=id_book);
 	END;	
-$$	
+$$;	
 
 --5.DODANIE NOWE KSIAZKI
 
@@ -118,7 +118,7 @@ $$
 		END IF;
 		END;
 		
-		$$
+		$$;
 		
 		
 --2.Funkcja wypisuje ksiazki z danego gatunku (uzywam widoku 7)!
@@ -142,7 +142,7 @@ CREATE OR REPLACE FUNCTION by_category(cat_name varchar)
 		WHERE cat_name = B.category_name;
 	END;
 	
-	$$
+	$$;
 	
 --3.Funkcja wypisuje ksiazki z danego sektora
 
@@ -163,6 +163,6 @@ CREATE OR REPLACE FUNCTION by_sector(sec_id int)
 	
 	
 	END;
-	$$
+	$$;
 	
 	
