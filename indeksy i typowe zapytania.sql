@@ -1,4 +1,4 @@
-CREATE INDEX currently_loaned  ON member_status(currenlty_loan); 
+CREATE INDEX currently_loaned  ON member_status(currently_loan); 
 CREATE INDEX title ON BOOK(title,availability);
 CREATE INDEX member_name ON MEMBER(member_id, surname,name);
 CREATE INDEX to_return ON loan_books(book_id,member_id);
