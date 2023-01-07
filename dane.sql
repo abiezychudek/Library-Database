@@ -43,10 +43,7 @@ INSERT INTO plan_of_building VALUES
 (5,'E',342),
 (6,'F',198),
 (7,'G',203),
-(8,'H',87),
-(9,'I',45),
-(10,'I',12),
-(11,'J',156);
+(8,'H',87);
 
 
 INSERT INTO book VALUES
