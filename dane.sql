@@ -80,7 +80,7 @@ INSERT INTO book VALUES
 (28,4,'Faust', 10,'2018-12-23',4,FALSE),
 (29,9,'Sen nocy letniej', 3,'2022-01-06',7,TRUE),
 (30,12,'Poskromienie zlosnicy', 1,'2001-02-19',6,TRUE),
-(31,11,'Ksiaze', 2,'1999-04-12',5,FALSE)
+(31,11,'Ksiaze', 2,'1999-04-12',5,FALSE),
 
 (32,11,'Swiat Zofii', 5,'2012-01-12',1,TRUE),
 (33,11,'Swiat Zofii', 5,'2011-10-14',2,TRUE),
