@@ -26,7 +26,7 @@ FROM member m
 JOIN loan_books d ON d.member_id = m.member_id
 WHERE (DATE_PART('year', CURRENT_DATE) - DATE_PART('year', return_data::date)
 +DATE_PART('month', CURRENT_DATE) - DATE_PART('month', return_data::date)
-+DATE_PART('day', CURRENT_DATE) - DATE_PART('day', return_data::date))>0
++DATE_PART('day', CURRENT_DATE) - DATE_PART('day', return_data::date))>0;
 
 --5 Widok osoby wraz z tytułem i kategoria książki na jaki oczekuje oraz pełna nazwa osoby, która ją prztrzymuje
 SELECT T.Full_name_booker,T.title,C.category_name ,loan.Full_name_loaner
@@ -46,7 +46,7 @@ SELECT T.Full_name_booker,T.title,C.category_name ,loan.Full_name_loaner
 		JOIN loan_books ON loan_books.member_id = mem.member_id
 	) loan  ON loan.book_id= T.book_id
 	
-	JOIN category C ON C.category_id=T.category_id
+	JOIN category C ON C.category_id=T.category_id;
 	
 	
 --6 Widok imie i nazwisko autora, tytul ksiazki i liczba dostepnych kopii w bibliotece
