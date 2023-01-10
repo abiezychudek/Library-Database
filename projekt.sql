@@ -133,5 +133,6 @@ CREATE TABLE changes (
    id INT GENERATED ALWAYS AS IDENTITY,
    member_id INT NOT NULL,
    surname VARCHAR(40) NOT NULL,
-   changed_time TIMESTAMP(6) NOT NULL
+   changed_time TIMESTAMP(6) NOT NULL,
+   FOREIGN KEY(member_ID) REFERENCES MEMBER(member_id)
 );
