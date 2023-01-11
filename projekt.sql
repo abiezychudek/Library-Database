@@ -113,6 +113,8 @@ CREATE TABLE COPY(
 CREATE TABLE publisher(
 	book_id	INT,
 	name VARCHAR(20) ,
+    city VARCHAR(20),
+    street VARCHAR(20),
 	FOREIGN KEY (book_id) REFERENCES book(book_id)	
 );
 
