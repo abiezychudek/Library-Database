@@ -106,21 +106,20 @@ INSERT INTO book VALUES
 (56,9,'Sen nocy letniej', 3,'2020-11-14',3,TRUE);
 
 INSERT INTO publisher VALUES
-(1,'HarperCollins'),
-(2,'Simon & Schuster'),
-(3,'Albus'),
-(4,'Anagram'),
-(5,'Bosz'),
-(6,'Carta Blanca'),
-(7,'In Rock'),
-(8,'Karakter'),
-(9,'Ksiaznica'),
-(10,'Karakter'),
-(11,'Universitas'),
-(12,'Stentor'),
-(13,'Stentor'),
-(14,'Karakter');
-
+(1,'HarperCollins','Cracow','Koguty'),
+(2,'Simon & Schuster','Gdansk'),
+(3,'Albus','Warsaw','Zlota'),
+(4,'Anagram','Cracow','Rynek'),
+(5,'Bosz','Bochnia','Biala'),
+(6,'Carta Blanca','Warsaw','Zlota'),
+(7,'In Rock','Cracow','Sliczna'),
+(8,'Karakter','Wieliczka','Solna'),
+(9,'Ksiaznica','Gdansk','Starowska'),
+(10,'Karakter','Wroclaw','Boguty'),
+(11,'Universitas','Cracow','Koguty'),
+(12,'Stentor','Cracow','Polska'),
+(13,'Stentor','Gdansk','Mogilka'),
+(14,'Karakter','Warsaw','Kalmerowska');
 
 INSERT INTO member VALUES
 (1,'Ala','bie', 'Cracow','abie','root'),
