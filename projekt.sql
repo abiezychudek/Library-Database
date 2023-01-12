@@ -3,39 +3,39 @@ CREATE DATABASE Library;
 
 CREATE TABLE MEMBER(
 	member_ID  SERIAL PRIMARY KEY,
-	name VARCHAR(20),
-	surname VARCHAR(20),
-	locality VARCHAR(25),
+	name VARCHAR(20) NOT NULL,
+	surname VARCHAR(20) NOT NULL,
+	locality VARCHAR(25) NOT NULL,
 	login VARCHAR(20) UNIQUE,
-	password VARCHAR(20)	
+	password VARCHAR(20) NOT NULL	
 );	
 
 CREATE TABLE AUTHOR(
 	author_id int PRIMARY KEY,
-	name VARCHAR(20),
-	surname VARCHAR(20)	
+	name VARCHAR(20) NOT NULL,
+	surname VARCHAR(20) NOT NULL	
 );
 CREATE TABLE SECTOR(
 	sector_id INT PRIMARY KEY,
-	floor INT,
+	floor INT NOT NULL,
 	place_to_read INT,
 	terminal INT	
 );
 CREATE TABLE PLAN_OF_BUILDING(
 	sector_id INT PRIMARY KEY,
-	sector_name VARCHAR(20),	
+	sector_name VARCHAR(20) NOT NULL,	
 	amout_of_books INT,
 	FOREIGN KEY(sector_id) REFERENCES SECTOR(sector_id)
 );
 
 CREATE TABLE BOOK(
 	book_id INT PRIMARY KEY,
-	category_id INT,
-	title VARCHAR(50),
-	author_id INT,
-	date_of_publication DATE,
-	sector_id INT,
-	availability BOOL,
+	category_id INT NOT NULL,
+	title VARCHAR(50) NOT NULL,
+	author_id INT NOT NULL,
+	date_of_publication DATE NOT NULL,
+	sector_id INT NOT NULL,
+	availability BOOL NOT NULL,
 	FOREIGN KEY(sector_id) REFERENCES SECTOR(sector_id),	
 	FOREIGN KEY(author_id) REFERENCES	AUTHOR(author_id)
 );
@@ -45,13 +45,14 @@ CREATE TABLE MEMBERSHIP_HISTORY(
 	book_ID INT,
 	loan_data DATE,
 	return_data DATE,
+	CHECK (loan_data <= return_data),
 	FOREIGN KEY(member_ID) REFERENCES MEMBER(member_id),
 	FOREIGN KEY(book_ID) REFERENCES BOOK(book_id)
 );
 
 CREATE TABLE CATEGORY(
 	CATEGORY_ID SERIAL PRIMARY KEY,
-	CATEGORY_name VARCHAR(20)	
+	CATEGORY_name VARCHAR(20) 	
 );
 
 ALTER TABLE book 
@@ -62,6 +63,7 @@ CREATE TABLE LOAN_BOOKS(
 	member_id INT ,
 	loan_data DATE,
 	return_data DATE,
+	CHECK (loan_data <= return_data),
 	FOREIGN KEY (book_id) REFERENCES book(book_id),
 	FOREIGN KEY (member_id) REFERENCES member(member_id)	
 );
