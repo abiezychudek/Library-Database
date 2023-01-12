@@ -24,7 +24,7 @@ CREATE TABLE SECTOR(
 CREATE TABLE PLAN_OF_BUILDING(
 	sector_id INT PRIMARY KEY,
 	sector_name VARCHAR(20) NOT NULL,	
-	amout_of_books INT,
+	amout_of_books INT, CHECK(amout_of_books >=0),
 	FOREIGN KEY(sector_id) REFERENCES SECTOR(sector_id)
 );
 
@@ -41,10 +41,10 @@ CREATE TABLE BOOK(
 );
 
 CREATE TABLE MEMBERSHIP_HISTORY(
-	member_ID INT,
-	book_ID INT,
-	loan_data DATE,
-	return_data DATE,
+	member_ID INT NOT NULL,
+	book_ID INT NOT NULL,
+	loan_data DATE NOT NULL,
+	return_data DATE NOT NULL,
 	CHECK (loan_data <= return_data),
 	FOREIGN KEY(member_ID) REFERENCES MEMBER(member_id),
 	FOREIGN KEY(book_ID) REFERENCES BOOK(book_id)
@@ -52,17 +52,17 @@ CREATE TABLE MEMBERSHIP_HISTORY(
 
 CREATE TABLE CATEGORY(
 	CATEGORY_ID SERIAL PRIMARY KEY,
-	CATEGORY_name VARCHAR(20) 	
+	CATEGORY_name VARCHAR(20) NOT NULL	
 );
 
 ALTER TABLE book 
 ADD CONSTRAINT category_id FOREIGN KEY  (category_id)  REFERENCES CATEGORY(CATEGORY_ID);
 
 CREATE TABLE LOAN_BOOKS(
-	book_id INT ,
-	member_id INT ,
-	loan_data DATE,
-	return_data DATE,
+	book_id INT NOT NULL,
+	member_id INT NOT NULL,
+	loan_data DATE NOT NULL,
+	return_data DATE NOT NULL,
 	CHECK (loan_data <= return_data),
 	FOREIGN KEY (book_id) REFERENCES book(book_id),
 	FOREIGN KEY (member_id) REFERENCES member(member_id)	
@@ -70,65 +70,65 @@ CREATE TABLE LOAN_BOOKS(
 
 CREATE TABLE RESERVATION(
 	id SERIAL PRIMARY KEY,
-	book_id INT,
-	member_id INT,
+	book_id INT NOT NULL,
+	member_id INT NOT NULL,
 	FOREIGN KEY (book_id) REFERENCES book(book_id),
 	FOREIGN KEY (member_id) REFERENCES member(member_id)	
 );
 
 CREATE TABLE POSITION(
 	position_id INT PRIMARY KEY,
-	salary INT,
-	bonus INT
+	salary INT, CHECK(salary >= 0),
+	bonus INT, CHECK(bonus >= 0),
 );
 
 CREATE TABLE STAFF(
 	staff_id SERIAL PRIMARY KEY,
-	name VARCHAR(20),
-	surname VARCHAR(20),
+	name VARCHAR(20) NOT NULL,
+	surname VARCHAR(20) NOT NULL,
 	sector_id INT,
-	position_id INT,
+	position_id INT NOT NULL,
 	FOREIGN KEY (sector_id) REFERENCES SECTOR(sector_id),
 	FOREIGN KEY (position_id) REFERENCES POSITION(position_id)
 );
 
 CREATE TABLE SHELF(
 	shelf_name VARCHAR(3) PRIMARY KEY,
-	sector_id INT,
+	sector_id INT NOT NULL,
 	FOREIGN KEY(sector_id) REFERENCES SECTOR(sector_id)
 );
 
 CREATE TABLE MEMBER_STATUS(
-	member_id INT,
+	member_id INT NOT NULL,
 	currently_loan INT,
 	max_to_loan INT,
 	FOREIGN KEY (member_id) REFERENCES member(member_id)
 );	
 
 CREATE TABLE COPY(
-	book_id INT,	
-	total_copies INT,
-	current_copies INT,
+	book_id INT NOT NULL,	
+	total_copies INT, CHECK(total_copies >=0),
+	current_copies INT, CHECK(total_copies >=0),
 	FOREIGN KEY (book_id) REFERENCES book(book_id)	
 );
 
 CREATE TABLE publisher(
-	book_id	INT,
-	name VARCHAR(20) ,
-    city VARCHAR(20),
-    street VARCHAR(20),
+	book_id	INT NOT NULL,
+	name VARCHAR(20) NOT NULL,
+    	city VARCHAR(20),
+    	street VARCHAR(20),
 	FOREIGN KEY (book_id) REFERENCES book(book_id)	
 );
 
 CREATE TABLE TERMINAL(
 	terminal_id INT PRIMARY KEY,
-	availability BOOLEAN,
-	sector_id INT,
+	availability BOOLEAN NOT NULL,
+	sector_id INT NOT NULL,
 	FOREIGN KEY (sector_id) REFERENCES SECTOR(sector_id)
 );
 
 CREATE TABLE TOP_BOOKS(
-	PLACE INT,
+	PLACE INT, CHECK(
 	BOOK_ID int,
 	FOREIGN KEY (BOOK_ID) REFERENCES BOOK(book_id)	
 );
