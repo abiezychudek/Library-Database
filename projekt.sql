@@ -79,11 +79,24 @@ CREATE TABLE RESERVATION(
 CREATE TABLE POSITION(
 	position_id INT PRIMARY KEY,
 	salary INT, CHECK(salary >= 0),
-	bonus INT, CHECK(bonus >= 0),
+	bonus INT, CHECK(bonus >= 0)
 );
 
-CREATE TABLE STAFF(
+CREATE TABLE STAFF_CATEGORY(
 	staff_id SERIAL PRIMARY KEY,
+	staff_type VARCHAR(20) NOT NULL
+);
+CREATE TABLE INTERN(
+	staff_id INT PRIMARY KEY,
+	name VARCHAR(20) NOT NULL,
+	surname VARCHAR(20) NOT NULL,
+	hours INT, CHECK(hours >=0),
+	internship_start_date DATE NOT NULL,
+	position_id INT NOT NULL,
+	FOREIGN KEY (position_id) REFERENCES POSITION(position_id)
+);
+CREATE TABLE REGULAR_STAFF(
+	staff_id INT PRIMARY KEY,
 	name VARCHAR(20) NOT NULL,
 	surname VARCHAR(20) NOT NULL,
 	sector_id INT,
