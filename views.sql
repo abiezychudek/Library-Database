@@ -15,7 +15,7 @@ WHERE B.book_id = T.BOOK_ID AND B.category_id = C.CATEGORY_ID;
 --3.Nazwa pracownika z piętrem na którym obecnie ma stanowisko
 CREATE OR REPLACE VIEW  staff_floor AS
 SELECT St.name, St.surname, SE.floor
-FROM STAFF St, SECTOR Se
+FROM REGULAR_STAFF St, SECTOR Se
 WHERE St.sector_id = Se.sector_id ;
 
 
