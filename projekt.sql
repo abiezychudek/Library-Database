@@ -153,3 +153,9 @@ CREATE TABLE changes (
    changed_time TIMESTAMP(6) NOT NULL,
    FOREIGN KEY(member_ID) REFERENCES MEMBER(member_id)
 );
+
+ ALTER TABLE  intern
+ ADD Constraint Intern FOREIGN KEY (position_id) REFERENCES Position(position_id) ON DELETE CASCADE ON UPDATE CASCADE;
+ 
+ ALTER TABLE  regular_staff
+ ADD Constraint regular FOREIGN KEY (position_id) REFERENCES Position(position_id) ON DELETE CASCADE ON UPDATE CASCADE;
