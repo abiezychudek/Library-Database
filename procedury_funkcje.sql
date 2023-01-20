@@ -121,7 +121,7 @@ $$
 		$$;
 		
 		
---2.Funkcja wypisuje ksiazki z danego gatunku (uzywam widoku 7)!
+--2.Funkcja wypisuje ksiazki z danego gatunku
 
 CREATE OR REPLACE FUNCTION by_category(cat_name varchar)
 	returns table (
