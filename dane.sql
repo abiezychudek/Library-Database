@@ -169,19 +169,6 @@ INSERT INTO position VALUES
 (4,2800,300);
 
 
-INSERT INTO staff_category VALUES
-('intern'),
-('intern'),
-('intern'),
-('intern'),
-('regular'),
-('regular'),
-('regular'),
-('regular'),
-('regular');
-
-
-
 INSERT INTO reservation VALUES
 (1,7,4),
 (2,2,3),
