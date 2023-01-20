@@ -169,19 +169,17 @@ INSERT INTO position VALUES
 (4,2800,300);
 
 
-INSERT INTO staff VALUES
-(11,'Tomek','Jakistam',1,4),
-(12,'Justyna','Jakastam',2,4),
-(13,'Slon','Trabalski',3,4),
-(14,'Piotrus','Pan',4,3),
-(15,'Jakub','Puchatek',5,1),
-(16,'Baba','Jaga',6,2),
-(17,'Tymek','Dymek',7,1),
-(18,'Kasia','Nowak',8,2),
-(19,'Stanisalaw','Wokulski',1,3),
-(20,'Maria','Szeregowa',2,3),
-(21,'Aleksandra','Stokok',3,1),
-(22,'Anastazja','Kowalska',4,1);
+INSERT INTO staff_category VALUES
+('intern'),
+('intern'),
+('intern'),
+('intern'),
+('regular'),
+('regular'),
+('regular'),
+('regular'),
+('regular');
+
 
 
 INSERT INTO reservation VALUES
