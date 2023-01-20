@@ -55,7 +55,7 @@ SELECT A.name, A.surname, B.title, COUNT(B.title) as copies FROM book B, author 
 WHERE B.availability = true AND B.author_id = A.author_id 
 GROUP BY (A.author_id, B.title);
 
---7. Wypisuje ksiazke i gatunek (POTRZEBNE DO FUNKCJI)
+--7. Wypisuje ksiazke i gatunek 
 CREATE OR REPLACE VIEW book_cat as
 SELECT A.name, A.surname, B.title, B.book_id,B.category_id,B.author_id,C.category_name, B.sector_id  FROM  book B
 JOIN category C ON B.category_id = C.category_id
