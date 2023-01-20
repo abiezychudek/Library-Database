@@ -76,7 +76,7 @@ CREATE TRIGGER amount
 AFTER UPDATE of sector_id ON book
 FOR EACH ROW EXECUTE PROCEDURE  update_amount();
 
--- 5 wpisuje do tabelki changes informacje o zmianie nazwiska kogos
+-- 5 wpisuje do tabelki changes informacje o zmianie kogos nazwiska 
 
 
 
